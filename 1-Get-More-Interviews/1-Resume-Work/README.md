@@ -35,4 +35,4 @@ Welcome to your ultimate resume enhancement guide! Ensure your resume not only s
 - [x] 📅 **Recent and Relevant**: Prioritize experiences and skills from the last 3-5 years that are most relevant to the position.
 - [x] 📝 **Cover Letter Companion**: Always pair your resume with a customized cover letter, unless specifically instructed not to.
 
-Remember, your resume is your personal marketing document. It's your story, told in a way that aligns with your career aspirations and the needs of your potential employer. Make every word count! 🌟
+Remember, your resume is your personal marketing document. It's your story, told in a way that aligns with your career aspirations and the needs of your potential employer. Make every word count! 🌟🌟
