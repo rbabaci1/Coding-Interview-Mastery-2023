@@ -29,12 +29,12 @@ To kick-start your journey through this course and begin improving your coding i
 
 1. **Clone this repository:**
     ```bash
-    git clone https://github.com/<your-username>/<repository-name>.git
+    git clone https://github.com/rbabaci1/Coding-Interview-Mastery-2023
     ```
 
 2. **Navigate to the repository folder:**
     ```bash
-    cd <repository-name>
+    cd Coding-Interview-Mastery-2023
     ```
 
 3. **Dive into the sections, starting with Big O Notation, and progress through Data Structures and Algorithms as you build your understanding and skills.**
