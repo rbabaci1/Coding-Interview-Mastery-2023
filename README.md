@@ -1,6 +1,6 @@
 # Ultimate Data Structures & Algorithms Course: Master Coding Interviews! 🚀
 
-Welcome to the ultimate GitHub repository for the **2023 Updated Data Structures & Algorithms Course**, designed to turbocharge your coding interview skills and help you land a job at top tech companies like Google, Microsoft, Meta, Netflix, Amazon, and more! Taught by Andrei Neagoie, an industry veteran with experience in both Silicon Valley and Toronto, this course is your ticket to becoming a standout developer. 🌟
+Welcome to the ultimate GitHub repository for the **2024 Updated Data Structures & Algorithms Course**, designed to turbocharge your coding interview skills and help you land a job at top tech companies like Google, Microsoft, Meta, Netflix, Amazon, and more! Taught by Andrei Neagoie, an industry veteran with experience in both Silicon Valley and Toronto, this course is your ticket to becoming a standout developer. 🌟
 
 ## About The Course 📚
 
@@ -29,12 +29,12 @@ To kick-start your journey through this course and begin improving your coding i
 
 1. **Clone this repository:**
     ```bash
-    git clone https://github.com/rbabaci1/Coding-Interview-Mastery-2023
+    git clone https://github.com/rbabaci1/Coding-Interview-Mastery-2024
     ```
 
 2. **Navigate to the repository folder:**
     ```bash
-    cd Coding-Interview-Mastery-2023
+    cd Coding-Interview-Mastery-2024
     ```
 
 3. **Dive into the sections, starting with Big O Notation, and progress through Data Structures and Algorithms as you build your understanding and skills.**
