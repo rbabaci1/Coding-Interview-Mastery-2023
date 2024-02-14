@@ -1,5 +1,6 @@
+// What is the Big O of the below functions? (Hint, you may want to go line by line)
+
 /********************* #1 ***********************/
-// What is the Big O of the below function? (Hint, you may want to go line by line)
 function funChallenge(input) {
 	let a = 10; // O(1)
 	a = 50 + 3; // O(1)
@@ -12,7 +13,6 @@ function funChallenge(input) {
 	}
 	return a; // O(1)
 }
-
 /*
     Solution: O(n).
 
@@ -24,7 +24,6 @@ function funChallenge(input) {
  */
 
 /********************* #2 ***********************/
-// What is the Big O of the below function? (Hint, you may want to go line by line)
 function anotherFunChallenge(input) {
 	let a = 5; // O(1)
 	let b = 10; // O(1)
@@ -42,7 +41,6 @@ function anotherFunChallenge(input) {
 	}
 	let whoAmI = "I don't know"; // O(1)
 }
-
 /*
     Solution: O(n).
     
@@ -59,9 +57,8 @@ function logAllPairsOfArray(arr) {
 		}
 	}
 }
-
 /*
     Solution: O(n^2). For n been the number of boxes.
 */
 
-logAllPairsOfArray(boxes);
+// logAllPairsOfArray(boxes);
