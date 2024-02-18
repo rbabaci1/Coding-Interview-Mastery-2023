@@ -1,7 +1,12 @@
-// Using the interview cheat sheet taking the famoust google interview as an example
+// Given 2 arrays, create a function that lets a user know (true/false) whether these two arrays contain any common items
 
-function hasPairWithSum(nums, sum) {}
-
-const collection1 = [1, 2, 3, 9];
-const collection2 = [1, 2, 4, 4];
-const sum = 8;
+// For example:
+/*
+    const array1 = ['a', 'b', 'c', 'x']
+    const array2 = ['z', 'y', 'i']
+    ** SHOULD RETURN FALSE **
+    -----------------------------------
+    const array1 = ['a', 'b', 'c', 'x']
+    const array2 = ['z', 'y', 'x']
+      ** SHOULD RETURN TRUE **
+*/
