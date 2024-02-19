@@ -51,7 +51,7 @@ function containsCommonItem(arr1, arr2) {
 }
 
 const array1 = ["a", "b", "c", "x"];
-const array2 = ["z", "e", "i"];
+const array2 = ["z", "i", "i"];
 
 // bruteForceSolution(array1, array2);
 containsCommonItem(array1, array2);
