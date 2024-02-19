@@ -17,7 +17,7 @@ function reverseString(str) {
 
 const reversedString = reverseString("Hi my name is Rabah");
 /* 
-    Should return: "habaR si eman ym iH"
+    Expected output: "habaR si eman ym iH"
 */
 
 console.log(reversedString);
