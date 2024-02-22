@@ -1,5 +1,21 @@
 function maxSubArray(nums) {
-    
+	// brute force solution
+	let max = 0;
+
+	for (let i = 0; i < nums.length; i++) {
+		let tempMax = 0;
+
+		for (let j = i; j < nums.length; j++) {
+			if (tempMax > tempMax + nums[j]) break;
+			tempMax += nums[j];
+		}
+
+		if (tempMax > max) {
+			max = tempMax;
+		}
+	}
+
+	return max;
 }
 
 const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
