@@ -24,15 +24,23 @@ class HashTable {
 
 	get(key) {
 		const address = this._hash(key);
-		return this.data[address];
+		const currBucket = this.data[address];
+
+		if (currBucket) {
+			for (let i = 0; i < currBucket.length; i++) {
+				if (currBucket[i][0] === key) {
+					return currBucket[i][1];
+				}
+			}
+		}
 	}
 }
 
 const myHashTable = new HashTable(1);
 
 myHashTable.set("grapes", 10000);
-myHashTable.set("grapes", 10000);
-myHashTable.set("grapes", 10000);
-const res = myHashTable.get("grapes");
+myHashTable.set("apples", 500);
+
+const res = myHashTable.get("grapesss");
 
 console.log(res);
