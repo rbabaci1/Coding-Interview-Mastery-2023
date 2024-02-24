@@ -34,13 +34,33 @@ class HashTable {
 			}
 		}
 	}
+
+	keys() {
+		const keys = [];
+		for (let i = 0; i < this.data.length; i++) {
+			const bucket = this.data[i];
+			if (bucket) {
+				// in case there was collisons while inserting
+				for (let j = 0; j < bucket.length; j++) {
+					keys.push(bucket[j][0]);
+				}
+			}
+		}
+
+		return keys;
+	}
 }
 
-const myHashTable = new HashTable(1);
+const myHashTable = new HashTable(50);
 
 myHashTable.set("grapes", 10000);
 myHashTable.set("apples", 500);
+myHashTable.set("oranges", 300);
+myHashTable.set("pears", 200);
+myHashTable.set("kiwis", 100);
 
-const res = myHashTable.get("grapesss");
+const item = myHashTable.get("grapesss");
+// console.log(item);
 
-console.log(res);
+const keys = myHashTable.keys();
+console.log(keys);
