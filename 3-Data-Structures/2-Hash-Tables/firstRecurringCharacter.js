@@ -1,10 +1,10 @@
 function firstRecurringCharacter(nums) {
-	let dict = {};
+	let map = {};
 	for (let i = 0; i < nums.length; i++) {
-		if (dict[nums[i]]) {
+		if (map[nums[i]] !== undefined) {
 			return nums[i];
 		}
-		dict[nums[i]] = 1;
+		map[nums[i]] = i;
 	}
 }
 
@@ -23,6 +23,6 @@ function firstRecurringCharacter(nums) {
 const array4 = [2, 5, 5, 2, 3, 5, 1, 2, 4];
 // return 5 because the pairs are before 2,2
 
-const res = firstRecurringCharacter(array4);
+const res = firstRecurringCharacter(array1);
 
 console.log(res);
