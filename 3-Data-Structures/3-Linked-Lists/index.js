@@ -9,11 +9,26 @@ class LinkedList {
 		this.length = 1;
 	}
 
-	insert() {}
+	append(value) {
+		const newNode = {
+			value,
+			next: null,
+		};
+
+		if (!this.head.next) {
+			this.head.next = this.tail;
+		}
+
+		this.tail.next = newNode;
+		this.tail = newNode;
+		this.length++;
+	}
 
 	delete() {}
 }
 
 const myLinkedList = new LinkedList(10);
+
+myLinkedList.append(20);
 
 console.log(myLinkedList);
