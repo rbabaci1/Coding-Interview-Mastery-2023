@@ -71,9 +71,9 @@ class LinkedList {
 	}
 
 	insert(index, value) {
+		if (index >= this.length || index < 0) return "Index out of bound";
 		if (index === 0) this.prepend(value);
 		if (index === this.length - 1) this.append(value);
-		if (index >= this.length || index < 0) return "Index out of bound";
 
 		const newNode = new Node(value);
 		const prevNode = this.lookup(index - 1);
@@ -85,7 +85,28 @@ class LinkedList {
 		return this;
 	}
 
-	delete(index) {}
+	delete(index) {
+		if (index >= this.length || index < 0) return "Index out of bound";
+
+		if (index === 0) {
+			let newHead = this.head.next;
+			this.head.next = null;
+			this.head = newHead;
+			return this;
+		}
+
+		let prevNode = this.lookup(index - 1);
+		if (index === this.length - 1) {
+			this.tail = prevNode;
+			prevNode.next = null;
+			return this;
+		}
+
+		let currentNode = this.lookup(index);
+		prevNode.next = currentNode.next;
+		currentNode.next = null;
+		this.length--;
+	}
 }
 
 const myLinkedList = new LinkedList(10);
@@ -96,8 +117,12 @@ myLinkedList.append(30);
 myLinkedList.prepend(5);
 
 const foundNode = myLinkedList.lookup(3);
-console.log(foundNode);
+// console.log(foundNode);
 
 myLinkedList.insert(2, 99);
+
+myLinkedList.printList();
+
+myLinkedList.delete(2);
 
 myLinkedList.printList();
