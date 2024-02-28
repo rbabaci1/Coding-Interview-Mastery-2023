@@ -19,7 +19,7 @@ class LinkedList {
 	printList() {
 		let linkedListStr = "HEAD -> ";
 		let currentNode = this.head;
-		while (currentNode !== null) {
+		while (currentNode) {
 			// Append current node's details to the string
 			linkedListStr += `{ value: ${currentNode.value}, next: `;
 
@@ -56,9 +56,34 @@ class LinkedList {
 		return this;
 	}
 
-	lookup(index) {}
+	lookup(index) {
+		let currentNode = this.head;
+		let currentIndex = 0;
 
-	insert(index, value) {}
+		while (currentNode) {
+			if (index === currentIndex) {
+				return currentNode;
+			}
+
+			currentNode = currentNode.next;
+			currentIndex++;
+		}
+	}
+
+	insert(index, value) {
+		if (index === 0) this.prepend(value);
+		if (index === this.length - 1) this.append(value);
+		if (index >= this.length || index < 0) return "Index out of bound";
+
+		const newNode = new Node(value);
+		const prevNode = this.lookup(index - 1);
+		const nextNode = this.lookup(index);
+
+		newNode.next = nextNode;
+		prevNode.next = newNode;
+		this.length++;
+		return this;
+	}
 
 	delete(index) {}
 }
@@ -70,5 +95,9 @@ myLinkedList.append(30);
 
 myLinkedList.prepend(5);
 
-// console.log(myLinkedList);
+const foundNode = myLinkedList.lookup(3);
+console.log(foundNode);
+
+myLinkedList.insert(2, 99);
+
 myLinkedList.printList();
