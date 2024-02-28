@@ -68,19 +68,25 @@ class LinkedList {
 			currentNode = currentNode.next;
 			currentIndex++;
 		}
+
+		return null;
 	}
 
 	insert(index, value) {
-		if (index >= this.length || index < 0) return "Index out of bound";
-		if (index === 0) this.prepend(value);
-		if (index === this.length - 1) this.append(value);
+		if (index > this.length || index < 0) return "Index out of bound";
 
 		const newNode = new Node(value);
-		const prevNode = this.lookup(index - 1);
-		const nextNode = this.lookup(index);
+		if (index === 0) {
+			newNode.next = this.head;
+			this.head = newNode;
+		} else {
+			const prevNode = this.lookup(index - 1);
+			newNode.next = prevNode.next;
+			prevNode.next = newNode;
+		}
 
-		newNode.next = nextNode;
-		prevNode.next = newNode;
+		if (index === this.length) this.tail = newNode; // Update tail if appended
+
 		this.length++;
 		return this;
 	}
@@ -89,23 +95,17 @@ class LinkedList {
 		if (index >= this.length || index < 0) return "Index out of bound";
 
 		if (index === 0) {
-			let newHead = this.head.next;
-			this.head.next = null;
-			this.head = newHead;
-			return this;
+			this.head = this.head.next;
+			if (index === this.length - 1) this.tail = null; // If only one done was present
+		} else {
+			const prevNode = this.lookup(index - 1);
+			const nodeToDelete = prevNode.next;
+			prevNode.next = nodeToDelete.next;
+			if (index === this.length - 1) this.tail = prevNode; // Update tail if last node got deleted
 		}
 
-		let prevNode = this.lookup(index - 1);
-		if (index === this.length - 1) {
-			this.tail = prevNode;
-			prevNode.next = null;
-			return this;
-		}
-
-		let currentNode = this.lookup(index);
-		prevNode.next = currentNode.next;
-		currentNode.next = null;
 		this.length--;
+		return this;
 	}
 }
 
@@ -116,13 +116,13 @@ myLinkedList.append(30);
 
 myLinkedList.prepend(5);
 
-const foundNode = myLinkedList.lookup(3);
-// console.log(foundNode);
+// const foundNode = myLinkedList.lookup(3);
+// // console.log(foundNode);
 
-myLinkedList.insert(2, 99);
+myLinkedList.insert(4, 99);
 
 myLinkedList.printList();
 
-myLinkedList.delete(2);
+myLinkedList.delete(4);
 
 myLinkedList.printList();
