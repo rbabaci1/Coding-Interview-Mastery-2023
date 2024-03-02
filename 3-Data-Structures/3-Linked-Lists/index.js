@@ -2,14 +2,16 @@ class Node {
 	constructor(value) {
 		this.value = value;
 		this.next = null;
+		this.prev = null;
 	}
 }
 
-class LinkedList {
+class DoublyLinkedList {
 	constructor(initialValue) {
 		this.head = {
 			value: initialValue,
 			next: null,
+			prev: null,
 		};
 
 		this.tail = this.head;
@@ -19,15 +21,17 @@ class LinkedList {
 	printList() {
 		let linkedListStr = "HEAD -> ";
 		let currentNode = this.head;
-		while (currentNode) {
-			// Append current node's details to the string
-			linkedListStr += `{ value: ${currentNode.value}, next: `;
 
+		while (currentNode) {
+			linkedListStr += `{ value: ${currentNode.value}, next: `;
 			if (currentNode.next) {
-				linkedListStr += `${currentNode.next.value} } -> `;
+				linkedListStr += `${currentNode.next.value}, prev: ${
+					currentNode.prev ? currentNode.prev.value : null
+				} } -> `;
 			} else {
-				// For the last node, next will be null
-				linkedListStr += "null } -> ";
+				linkedListStr += "null, prev: ";
+				linkedListStr += currentNode.prev ? currentNode.prev.value : null;
+				linkedListStr += " } -> ";
 			}
 
 			currentNode = currentNode.next;
@@ -42,6 +46,7 @@ class LinkedList {
 		const newNode = new Node(value);
 
 		this.tail.next = newNode;
+		newNode.prev = this.tail;
 		this.tail = newNode;
 		this.length++;
 		return this;
@@ -51,6 +56,7 @@ class LinkedList {
 		const newNode = new Node(value);
 
 		newNode.next = this.head;
+		this.head.prev = newNode;
 		this.head = newNode;
 		this.length++;
 		return this;
@@ -78,11 +84,14 @@ class LinkedList {
 		const newNode = new Node(value);
 		if (index === 0) {
 			newNode.next = this.head;
+			this.head.prev = newNode;
 			this.head = newNode;
 		} else {
-			const prevNode = this.lookup(index - 1);
-			newNode.next = prevNode.next;
-			prevNode.next = newNode;
+			const currentIndexNode = this.lookup(index);
+			newNode.next = currentIndexNode;
+			newNode.prev = currentIndexNode.prev;
+			currentIndexNode.prev.next = newNode;
+			currentIndexNode.prev = newNode;
 		}
 
 		if (index === this.length) this.tail = newNode; // Update tail if appended
@@ -96,12 +105,16 @@ class LinkedList {
 
 		if (index === 0) {
 			this.head = this.head.next;
+			this.head.prev = null;
 			if (index === this.length - 1) this.tail = null; // If only one done was present
+		} else if (index === this.length - 1) {
+			// Update tail if last node got deleted
+			this.tail = this.tail.prev;
+			this.tail.next = null;
 		} else {
-			const prevNode = this.lookup(index - 1);
-			const nodeToDelete = prevNode.next;
-			prevNode.next = nodeToDelete.next;
-			if (index === this.length - 1) this.tail = prevNode; // Update tail if last node got deleted
+			const currentIndexNode = this.lookup(index);
+			currentIndexNode.prev.next = currentIndexNode.next;
+			currentIndexNode.next.prev = currentIndexNode.prev;
 		}
 
 		this.length--;
@@ -109,20 +122,19 @@ class LinkedList {
 	}
 }
 
-const myLinkedList = new LinkedList(10);
+const myLinkedList = new DoublyLinkedList(10);
 
 myLinkedList.append(20);
-myLinkedList.append(30);
 
 myLinkedList.prepend(5);
 
 // const foundNode = myLinkedList.lookup(3);
 // // console.log(foundNode);
 
-myLinkedList.insert(4, 99);
+myLinkedList.insert(1, 99);
 
 myLinkedList.printList();
 
-myLinkedList.delete(4);
+myLinkedList.delete(1);
 
 myLinkedList.printList();
