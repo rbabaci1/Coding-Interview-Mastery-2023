@@ -138,7 +138,7 @@ myLinkedList.prepend(10);
 // const foundNode = myLinkedList.lookup(3);
 // // console.log(foundNode);
 
-myLinkedList.insert(1, 99);
+// myLinkedList.insert(1, 99);
 
 myLinkedList.printList();
 
