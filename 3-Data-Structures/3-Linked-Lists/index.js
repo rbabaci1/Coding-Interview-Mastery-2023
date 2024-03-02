@@ -19,27 +19,16 @@ class DoublyLinkedList {
 	}
 
 	printList() {
-		let linkedListStr = "HEAD -> ";
+		let linkedList = [];
 		let currentNode = this.head;
 
 		while (currentNode) {
-			linkedListStr += `{ value: ${currentNode.value}, next: `;
-			if (currentNode.next) {
-				linkedListStr += `${currentNode.next.value}, prev: ${
-					currentNode.prev ? currentNode.prev.value : null
-				} } -> `;
-			} else {
-				linkedListStr += "null, prev: ";
-				linkedListStr += currentNode.prev ? currentNode.prev.value : null;
-				linkedListStr += " } -> ";
-			}
+			linkedList.push(currentNode.value);
 
 			currentNode = currentNode.next;
 		}
 
-		linkedListStr += "TAIL";
-
-		console.log(linkedListStr);
+		console.log(linkedList);
 	}
 
 	append(value) {
@@ -120,13 +109,31 @@ class DoublyLinkedList {
 		this.length--;
 		return this;
 	}
+
+	reverse() {
+		if (this.length <= 1) return this.head;
+
+		let first = this.head;
+		let second = first.next;
+		while (second) {
+			const temp = second.next;
+			second.next = first;
+			first = second;
+			second = temp;
+		}
+		this.head.next = null;
+		this.head = first;
+
+		return this;
+	}
 }
 
-const myLinkedList = new DoublyLinkedList(10);
+const myLinkedList = new DoublyLinkedList(20);
 
-myLinkedList.append(20);
+myLinkedList.append(30);
+myLinkedList.append(40);
 
-myLinkedList.prepend(5);
+myLinkedList.prepend(10);
 
 // const foundNode = myLinkedList.lookup(3);
 // // console.log(foundNode);
@@ -135,6 +142,8 @@ myLinkedList.insert(1, 99);
 
 myLinkedList.printList();
 
-myLinkedList.delete(1);
+myLinkedList.reverse();
 
 myLinkedList.printList();
+
+// myLinkedList.delete(1);

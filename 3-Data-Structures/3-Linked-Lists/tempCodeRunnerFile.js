@@ -1,17 +1,2 @@
-while (currentNode) {
-		// 	// Append current node's details to the string
-		// 	linkedListStr += `{ value: ${currentNode.value}, next: `;
-
-		// 	if (currentNode.next) {
-		// 		linkedListStr += `${currentNode.next.value} } -> `;
-		// 	} else {
-		// 		// For the last node, next will be null
-		// 		linkedListStr += "null } -> ";
-		// 	}
-
-		// 	currentNode = currentNode.next;
-		// }
-
-		// linkedListStr += "TAIL";
-
-		// console.log(linkedListStr);
+myLinkedList.append(30);
+myLinkedList.append(40);
