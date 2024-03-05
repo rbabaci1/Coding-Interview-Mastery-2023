@@ -44,7 +44,7 @@ class Stack {
 
 	pop() {
 		if (this.isEmpty()) return null;
-		// if (this.length === 1) this.bottom = null;
+		if (this.length === 1) this.bottom = null;
 
 		const poppedValue = this.top;
 		this.top = this.top.next;
