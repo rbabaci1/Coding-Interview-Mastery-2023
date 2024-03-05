@@ -41,14 +41,22 @@ class Queue {
 		this.length++;
 	}
 
-	dequeue() {}
+	dequeue() {
+		if (this.length === 0) return null;
+		if (this.length === 1) this.last = null;
+
+		this.first = this.first.next;
+		this.length--;
+	}
 }
 
 const myQueue = new Queue();
 
 myQueue.enqueue("rabah");
-myQueue.enqueue("babaci");
+myQueue.enqueue("celina");
+myQueue.enqueue("zineb");
+myQueue.enqueue("marwa");
 
-console.log(myQueue);
+myQueue.dequeue();
 
-// myQueue.print();
+myQueue.print();
