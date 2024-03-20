@@ -15,5 +15,22 @@ function bubbleSort(array) {
 	} while (swappOccured);
 }
 
-bubbleSort(numbers);
+// bubbleSort(numbers);
+
+function selectionSort(array) {
+	for (let i = 0; i < array.length; i++) {
+		let smallestIndex = i;
+
+		for (let j = i + 1; j < array.length; j++) {
+			if (array[smallestIndex] > array[j]) smallestIndex = j;
+		}
+
+		if (smallestIndex !== i) {
+			[array[i], array[smallestIndex]] = [array[smallestIndex], array[i]];
+		}
+	}
+}
+
+selectionSort(numbers);
+
 console.log(numbers);

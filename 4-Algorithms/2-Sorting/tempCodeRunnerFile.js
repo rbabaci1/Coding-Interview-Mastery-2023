@@ -1,0 +1,1 @@
+[array[i], array[smallestIndex]] = [array[smallestIndex], array[i]];
