@@ -48,6 +48,51 @@ function insertionSort(array) {
 	}
 }
 
-insertionSort(numbers);
+// insertionSort(numbers);
 
-console.log(numbers);
+function merge(left, right) {
+	const mergedArray = [];
+	let leftIndex = 0;
+	let rightIndex = 0;
+
+	// Check if merging is needed
+	if (left[left.length - 1] <= right[0]) {
+		console.log("already sorted");
+		return [...left, ...right];
+	}
+
+	while (leftIndex < left.length && rightIndex < right.length) {
+		if (left[leftIndex] < right[rightIndex]) {
+			mergedArray.push(left[leftIndex]);
+			leftIndex++;
+		} else {
+			mergedArray.push(right[rightIndex]);
+			rightIndex++;
+		}
+	}
+
+	// Handle any remaining elements in left or right array
+	if (leftIndex < left.length) {
+		mergedArray.push(...left.slice(leftIndex));
+	} else if (rightIndex < right.length) {
+		mergedArray.push(...right.slice(rightIndex));
+	}
+
+	return mergedArray;
+}
+
+function mergeSort(array) {
+	if (array.length === 1) {
+		return array;
+	}
+
+	const middle = Math.floor(array.length / 2);
+	const left = array.slice(0, middle);
+	const right = array.slice(middle);
+
+	return merge(mergeSort(left), mergeSort(right));
+}
+
+console.log(mergeSort([1, 2, 3, 4, 5, 6, 7, 8]));
+
+// console.log(numbers);
