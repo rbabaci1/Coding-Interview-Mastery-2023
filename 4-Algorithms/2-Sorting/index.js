@@ -35,17 +35,16 @@ function selectionSort(array) {
 
 function insertionSort(array) {
 	for (let i = 1; i < array.length; i++) {
-		let end = i - 1;
-		let current = i;
+		let current = array[i]; // Store the current element
+		let end = i - 1; // Start comparing with the element before i
 
-		while (end >= 0) {
-			if (array[current] < array[end]) {
-				[array[current], array[end]] = [array[end], array[current]];
-				current--;
-			} else break;
-
+		// Shift elements of the sorted segment forward if they are larger than the current element
+		while (end >= 0 && array[end] > current) {
+			array[end + 1] = array[end];
 			end--;
 		}
+		// Insert the current element into its correct position
+		array[end + 1] = current;
 	}
 }
 
