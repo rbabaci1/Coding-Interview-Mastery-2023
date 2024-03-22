@@ -1,4 +1,4 @@
-const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+let numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
 function bubbleSort(array) {
 	let swappOccured;
@@ -31,6 +31,24 @@ function selectionSort(array) {
 	}
 }
 
-selectionSort(numbers);
+// selectionSort(numbers);
+
+function insertionSort(array) {
+	for (let i = 1; i < array.length; i++) {
+		let end = i - 1;
+		let current = i;
+
+		while (end >= 0) {
+			if (array[current] < array[end]) {
+				[array[current], array[end]] = [array[end], array[current]];
+				current--;
+			} else break;
+
+			end--;
+		}
+	}
+}
+
+insertionSort(numbers);
 
 console.log(numbers);
